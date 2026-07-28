@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PHRemit - Free OFW remittance calculators. Currency converter, remittance fee comparison, family budget planner, savings goal tracker for overseas Filipino workers.">
+<meta name="keywords" content="ofw remittance calculator, peso dollar converter, remittance fee comparison philippines, ofw budget planner, balikbayan box calculator">
+<title>PHRemit — OFW Remittance & Budget Calculators 2026</title>
+<!-- <script src="//cdn.monetag.com/multitag.js?z={MONETAG_PUBLISHER_ID}" async></script> -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">PH<span>Remit</span></a>
+    <span class="header-tagline">OFW Remittance & Budget Tools</span>
+  </div>
+</header>
+<div class="ad-leaderboard">
+  <span class="ad-label">Advertisement</span>
+  <!-- CLICKADU 728x90 LEADERBOARD START -->
+  <!-- <script async type="application/javascript" src="//cdn.clickadu.com/banner.js?id={CLICKADU_ZONE_ID}"></script> -->
+  <!-- CLICKADU 728x90 LEADERBOARD END -->
+  <div style="width:728px;height:90px;" class="ph-placeholder">728×90 — Clickadu Leaderboard</div>
+</div>
+<div class="hero">
+  <span class="hero-flag">✈️</span>
+  <h1>OFW Remittance & Family Budget Calculators</h1>
+  <p>Currency Converter, Remittance Fees, Family Allotment Planner & Savings Goals — built for OFWs and their families</p>
+</div>
+<div class="main-wrap">
+  <div class="tool-grid">
+    <button class="tool-btn active" onclick="showTool('currency')" id="btn-currency"><span class="tool-icon">💱</span><span class="tool-name">Currency Converter</span></button>
+    <button class="tool-btn" onclick="showTool('remitfee')" id="btn-remitfee"><span class="tool-icon">💸</span><span class="tool-name">Remittance Fee Compare</span></button>
+    <button class="tool-btn" onclick="showTool('allotment')" id="btn-allotment"><span class="tool-icon">👨‍👩‍👧</span><span class="tool-name">Family Allotment Planner</span></button>
+    <button class="tool-btn" onclick="showTool('savings')" id="btn-savings"><span class="tool-icon">🎯</span><span class="tool-name">Savings Goal Tracker</span></button>
+    <button class="tool-btn" onclick="showTool('costliving')" id="btn-costliving"><span class="tool-icon">🏙️</span><span class="tool-name">Cost of Living Abroad</span></button>
+    <button class="tool-btn" onclick="showTool('contract')" id="btn-contract"><span class="tool-icon">📄</span><span class="tool-name">Contract Earnings</span></button>
+  </div>
+
+  <div class="tool-section active" id="tool-currency">
+    <div class="calc-card">
+      <div class="calc-header"><span class="calc-icon">💱</span><h2>Currency to Philippine Peso Converter</h2></div>
+      <div class="calc-body">
+        <div class="ad-native-wrap">
+          <div class="ad-native-side"><div class="ad-box"><span class="ad-label">Advertisement</span><div style="width:160px;height:200px;" class="ph-placeholder">Adsterra 300×250</div></div></div>
+          <div class="ad-main">
+            <div class="form-row">
+              <div class="form-group"><label>Amount</label><input type="number" id="cur-amount" placeholder="e.g. 1000" min="0"></div>
+              <div class="form-group"><label>From Currency</label>
+                <select id="cur-from">
+                  <option value="usd">USD — US Dollar</option>
+                  <option value="sar">SAR — Saudi Riyal</option>
+                  <option value="aed">AED — UAE Dirham</option>
+                  <option value="hkd">HKD — Hong Kong Dollar</option>
+                  <option value="sgd">SGD — Singapore Dollar</option>
+                  <option value="jpy">JPY — Japanese Yen</option>
+                  <option value="kwd">KWD — Kuwaiti Dinar</option>
+                  <option value="qar">QAR — Qatari Riyal</option>
+                  <option value="eur">EUR — Euro</option>
+                  <option value="cad">CAD — Canadian Dollar</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-calc" onclick="calcCurrency()">Convert to Peso</button>
+            <div class="result-box" id="cur-result">
+              <div class="result-title">Conversion Result (Indicative Rate)</div>
+              <div class="result-row"><span class="result-label">Amount Sent</span><span class="result-value" id="r-cur-original">—</span></div>
+              <div class="result-row"><span class="result-label">Exchange Rate</span><span class="result-value" id="r-cur-rate">—</span></div>
+              <div class="result-row"><span class="result-label">💰 Converted to PHP</span><span class="result-value" id="r-cur-result" style="font-size:18px;">—</span></div>
+              <p style="font-size:11px;color:#718096;margin-top:8px;">* Indicative mid-market rate only. Actual remittance rate will differ — check your provider for exact rates.</p>
+              <div class="action-btns">
+                <a class="btn-action" href="#" onclick="return handleDirectLink('adsterra')" target="_blank" rel="noopener">📥 Save Result</a>
+                <a class="btn-action" href="#" onclick="return handleDirectLink('mobidea')" target="_blank" rel="noopener">📤 Share</a>
+                <button class="btn-action" onclick="showTool('remitfee')">Compare Fees →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-social-bar"><span class="ad-label">Sponsored</span><div style="width:100%;height:36px;" class="ph-placeholder">Adsterra Social Bar</div></div>
+      </div>
+    </div>
+    <div class="related-tools"><h4>🔗 Related Calculators</h4><div class="related-list">
+      <span class="related-link" onclick="showTool('remitfee')">Remittance Fees</span>
+      <span class="related-link" onclick="showTool('allotment')">Family Allotment</span>
+    </div></div>
+  </div>
+
+  <div class="tool-section" id="tool-remitfee">
+    <div class="calc-card">
+      <div class="calc-header"><span class="calc-icon">💸</span><h2>Remittance Fee Comparison Calculator</h2></div>
+      <div class="calc-body">
+        <div class="ad-native-wrap">
+          <div class="ad-native-side"><div class="ad-box"><span class="ad-label">Advertisement</span><div style="width:160px;height:200px;" class="ph-placeholder">Adsterra 300×250</div></div></div>
+          <div class="ad-main">
+            <div class="form-group"><label>Amount to Send (USD)</label><input type="number" id="fee-amount" placeholder="e.g. 500" min="0"></div>
+            <button class="btn-calc" onclick="calcRemitFee()">Compare Estimated Fees</button>
+            <div class="result-box" id="fee-result">
+              <div class="result-title">Estimated Fee Comparison (Typical Ranges)</div>
+              <div class="result-row"><span class="result-label">Bank Wire Transfer</span><span class="result-value red" id="r-fee-bank">—</span></div>
+              <div class="result-row"><span class="result-label">Remittance Center (Door-to-Door)</span><span class="result-value red" id="r-fee-center">—</span></div>
+              <div class="result-row"><span class="result-label">Digital Wallet Transfer</span><span class="result-value red" id="r-fee-digital">—</span></div>
+              <div class="result-row"><span class="result-label">Cheapest Option (Est.)</span><span class="result-value green" id="r-fee-cheapest">—</span></div>
+              <p style="font-size:11px;color:#718096;margin-top:8px;">* Estimates only, based on typical industry fee ranges. Actual fees vary by provider and corridor.</p>
+              <div class="action-btns">
+                <a class="btn-action" href="#" onclick="return handleDirectLink('adsterra')" target="_blank" rel="noopener">📥 Save Result</a>
+                <a class="btn-action" href="#" onclick="return handleDirectLink('mobidea')" target="_blank" rel="noopener">📤 Share</a>
+                <button class="btn-action" onclick="showTool('currency')">Currency Converter →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-social-bar"><span class="ad-label">Sponsored</span><div style="width:100%;height:36px;" class="ph-placeholder">Adsterra Social Bar</div></div>
+      </div>
+    </div>
+    <div class="related-tools"><h4>🔗 Related Calculators</h4><div class="related-list">
+      <span class="related-link" onclick="showTool('currency')">Currency Converter</span>
+      <span class="related-link" onclick="showTool('allotment')">Family Allotment</span>
+    </div></div>
+  </div>
+
+  <div class="tool-section" id="tool-allotment">
+    <div class="calc-card">
+      <div class="calc-header"><span class="calc-icon">👨‍👩‍👧</span><h2>Family Allotment Budget Planner</h2></div>
+      <div class="calc-body">
+        <div class="ad-native-wrap">
+          <div class="ad-native-side"><div class="ad-box"><span class="ad-label">Advertisement</span><div style="width:160px;height:200px;" class="ph-placeholder">Adsterra 300×250</div></div></div>
+          <div class="ad-main">
+            <div class="form-group"><label>Monthly Remittance Amount (PHP)</label><input type="number" id="allot-total" placeholder="e.g. 30000" min="0"></div>
+            <div class="form-group"><label>Number of Dependents</label><input type="number" id="allot-deps" placeholder="e.g. 3" min="1" max="10"></div>
+            <button class="btn-calc" onclick="calcAllotment()">Generate Budget Plan</button>
+            <div class="result-box" id="allot-result">
+              <div class="result-title">Suggested Monthly Budget Allocation</div>
+              <div class="result-row"><span class="result-label">Food & Household (40%)</span><span class="result-value" id="r-allot-food">—</span></div>
+              <div class="result-row"><span class="result-label">Education (20%)</span><span class="result-value" id="r-allot-edu">—</span></div>
+              <div class="result-row"><span class="result-label">Utilities & Bills (15%)</span><span class="result-value" id="r-allot-bills">—</span></div>
+              <div class="result-row"><span class="result-label">Savings (15%)</span><span class="result-value green" id="r-allot-savings">—</span></div>
+              <div class="result-row"><span class="result-label">Emergency Fund (10%)</span><span class="result-value" id="r-allot-emergency">—</span></div>
+              <div class="action-btns">
+                <a class="btn-action" href="#" onclick="return handleDirectLink('adsterra')" target="_blank" rel="noopener">📥 Save Plan</a>
+                <a class="btn-action" href="#" onclick="return handleDirectLink('mobidea')" target="_blank" rel="noopener">📤 Share</a>
+                <button class="btn-action" onclick="showTool('savings')">Savings Goal →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-social-bar"><span class="ad-label">Sponsored</span><div style="width:100%;height:36px;" class="ph-placeholder">Adsterra Social Bar</div></div>
+      </div>
+    </div>
+    <div class="related-tools"><h4>🔗 Related Calculators</h4><div class="related-list">
+      <span class="related-link" onclick="showTool('savings')">Savings Goal</span>
+      <span class="related-link" onclick="showTool('remitfee')">Remittance Fees</span>
+    </div></div>
+  </div>
+
+  <div class="tool-section" id="tool-savings">
+    <div class="calc-card">
+      <div class="calc-header"><span class="calc-icon">🎯</span><h2>OFW Savings Goal Tracker</h2></div>
+      <div class="calc-body">
+        <div class="ad-native-wrap">
+          <div class="ad-native-side"><div class="ad-box"><span class="ad-label">Advertisement</span><div style="width:160px;height:200px;" class="ph-placeholder">Adsterra 300×250</div></div></div>
+          <div class="ad-main">
+            <div class="form-group"><label>Savings Goal (PHP)</label><input type="number" id="sav-goal" placeholder="e.g. 500000" min="0"></div>
+            <div class="form-group"><label>Current Savings (PHP)</label><input type="number" id="sav-current" placeholder="e.g. 50000" min="0"></div>
+            <div class="form-group"><label>Monthly Savings Amount (PHP)</label><input type="number" id="sav-monthly" placeholder="e.g. 15000" min="0"></div>
+            <button class="btn-calc" onclick="calcSavings()">Calculate Time to Goal</button>
+            <div class="result-box" id="sav-result">
+              <div class="result-title">Savings Timeline</div>
+              <div class="result-row"><span class="result-label">Amount Remaining</span><span class="result-value" id="r-sav-remaining">—</span></div>
+              <div class="result-row"><span class="result-label">Months to Reach Goal</span><span class="result-value" id="r-sav-months" style="font-size:18px;">—</span></div>
+              <div class="result-row"><span class="result-label">Estimated Date</span><span class="result-value green" id="r-sav-date">—</span></div>
+              <div class="action-btns">
+                <a class="btn-action" href="#" onclick="return handleDirectLink('adsterra')" target="_blank" rel="noopener">📥 Save Result</a>
+                <a class="btn-action" href="#" onclick="return handleDirectLink('mobidea')" target="_blank" rel="noopener">📤 Share</a>
+                <button class="btn-action" onclick="showTool('allotment')">Allotment Planner →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-social-bar"><span class="ad-label">Sponsored</span><div style="width:100%;height:36px;" class="ph-placeholder">Adsterra Social Bar</div></div>
+      </div>
+    </div>
+    <div class="related-tools"><h4>🔗 Related Calculators</h4><div class="related-list">
+      <span class="related-link" onclick="showTool('allotment')">Family Allotment</span>
+      <span class="related-link" onclick="showTool('contract')">Contract Earnings</span>
+    </div></div>
+  </div>
+
+  <div class="tool-section" id="tool-costliving">
+    <div class="calc-card">
+      <div class="calc-header"><span class="calc-icon">🏙️</span><h2>Cost of Living Comparison</h2></div>
+      <div class="calc-body">
+        <div class="ad-native-wrap">
+          <div class="ad-native-side"><div class="ad-box"><span class="ad-label">Advertisement</span><div style="width:160px;height:200px;" class="ph-placeholder">Adsterra 300×250</div></div></div>
+          <div class="ad-main">
+            <div class="form-group"><label>Monthly Income Abroad</label><input type="number" id="col-income" placeholder="e.g. 2000" min="0"></div>
+            <div class="form-group"><label>Currency</label>
+              <select id="col-currency">
+                <option value="usd">USD</option><option value="sar">SAR</option><option value="aed">AED</option>
+                <option value="hkd">HKD</option><option value="sgd">SGD</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Estimated Monthly Living Cost Abroad</label><input type="number" id="col-cost" placeholder="e.g. 800" min="0"></div>
+            <button class="btn-calc" onclick="calcCostLiving()">Calculate Disposable Income</button>
+            <div class="result-box" id="col-result">
+              <div class="result-title">Disposable Income for Remittance</div>
+              <div class="result-row"><span class="result-label">Income (PHP equivalent)</span><span class="result-value" id="r-col-income">—</span></div>
+              <div class="result-row"><span class="result-label">Living Costs (PHP equivalent)</span><span class="result-value red" id="r-col-cost">—</span></div>
+              <div class="result-row"><span class="result-label">💰 Disposable for Remittance</span><span class="result-value green" id="r-col-disposable" style="font-size:17px;">—</span></div>
+              <div class="action-btns">
+                <a class="btn-action" href="#" onclick="return handleDirectLink('adsterra')" target="_blank" rel="noopener">📥 Save Result</a>
+                <a class="btn-action" href="#" onclick="return handleDirectLink('mobidea')" target="_blank" rel="noopener">📤 Share</a>
+                <button class="btn-action" onclick="showTool('allotment')">Allotment Planner →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-social-bar"><span class="ad-label">Sponsored</span><div style="width:100%;height:36px;" class="ph-placeholder">Adsterra Social Bar</div></div>
+      </div>
+    </div>
+    <div class="related-tools"><h4>🔗 Related Calculators</h4><div class="related-list">
+      <span class="related-link" onclick="showTool('currency')">Currency Converter</span>
+      <span class="related-link" onclick="showTool('allotment')">Family Allotment</span>
+    </div></div>
+  </div>
+
+  <div class="tool-section" id="tool-contract">
+    <div class="calc-card">
+      <div class="calc-header"><span class="calc-icon">📄</span><h2>Overseas Contract Total Earnings Calculator</h2></div>
+      <div class="calc-body">
+        <div class="ad-native-wrap">
+          <div class="ad-native-side"><div class="ad-box"><span class="ad-label">Advertisement</span><div style="width:160px;height:200px;" class="ph-placeholder">Adsterra 300×250</div></div></div>
+          <div class="ad-main">
+            <div class="form-row">
+              <div class="form-group"><label>Monthly Salary</label><input type="number" id="con-salary" placeholder="e.g. 2000" min="0"></div>
+              <div class="form-group"><label>Currency</label>
+                <select id="con-currency"><option value="usd">USD</option><option value="sar">SAR</option><option value="aed">AED</option><option value="hkd">HKD</option><option value="sgd">SGD</option></select>
+              </div>
+            </div>
+            <div class="form-group"><label>Contract Duration (Months)</label><input type="number" id="con-months" placeholder="e.g. 24" min="1" max="60"></div>
+            <button class="btn-calc" onclick="calcContract()">Calculate Total Contract Earnings</button>
+            <div class="result-box" id="con-result">
+              <div class="result-title">Total Contract Value</div>
+              <div class="result-row"><span class="result-label">Monthly Salary (PHP)</span><span class="result-value" id="r-con-monthly">—</span></div>
+              <div class="result-row"><span class="result-label">Contract Duration</span><span class="result-value" id="r-con-duration">—</span></div>
+              <div class="result-row"><span class="result-label">💰 Total Contract Earnings (PHP)</span><span class="result-value" id="r-con-total" style="font-size:17px;">—</span></div>
+              <div class="action-btns">
+                <a class="btn-action" href="#" onclick="return handleDirectLink('adsterra')" target="_blank" rel="noopener">📥 Save Result</a>
+                <a class="btn-action" href="#" onclick="return handleDirectLink('mobidea')" target="_blank" rel="noopener">📤 Share</a>
+                <button class="btn-action" onclick="showTool('savings')">Savings Goal →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-social-bar"><span class="ad-label">Sponsored</span><div style="width:100%;height:36px;" class="ph-placeholder">Adsterra Social Bar</div></div>
+      </div>
+    </div>
+    <div class="related-tools"><h4>🔗 Related Calculators</h4><div class="related-list">
+      <span class="related-link" onclick="showTool('savings')">Savings Goal</span>
+      <span class="related-link" onclick="showTool('currency')">Currency Converter</span>
+    </div></div>
+  </div>
+</div>
+
+<div class="ad-sticky-mobile"><span class="ad-label">Advertisement</span><div style="width:320px;height:50px;margin:0 auto;" class="ph-placeholder">320×50 Mobile Banner</div></div>
+
+<footer class="site-footer">
+  <div class="footer-links"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></div>
+  <div>© 2026 PHRemit — OFW Remittance & Budget Calculators</div>
+</footer>
+
+<!-- <script async src="//cdn.adsterra.com/js/pop-ad.js?z={ADSTERRA_ZONE_ID}"></script> -->
+<!-- <script async src="//cdn.propellerads.com/interstitial.js?id={PROPELLERADS_ZONE_ID}"></script> -->
+<!-- <script async src="//cdn.propellerads.com/pushsub.js?id={PROPELLERADS_PUSH_ID}"></script> -->
+
+<script>
+function showTool(name) {
+  document.querySelectorAll('.tool-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tool-' + name).classList.add('active');
+  document.getElementById('btn-' + name).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function handleDirectLink(network) {
+  const links = { adsterra: 'https://www.adsterra.com/direct-link/?YOUR_ADSTERRA_DIRECT_LINK_HERE', mobidea: 'https://ml.mobidea.com/r/smartlink/?YOUR_MOBIDEA_SMARTLINK_HERE' };
+  if (links[network].includes('YOUR_')) return false;
+  window.open(links[network], '_blank', 'noopener');
+  return false;
+}
+function fmt(n) { return '₱ ' + Math.round(n).toLocaleString('en-PH'); }
+
+const RATES = { usd:57.8, sar:15.4, aed:15.7, hkd:7.4, sgd:43.2, jpy:0.39, kwd:188.5, qar:15.9, eur:62.9, cad:42.1 };
+
+function calcCurrency() {
+  const amt = parseFloat(document.getElementById('cur-amount').value) || 0;
+  const from = document.getElementById('cur-from').value;
+  if (!amt) { alert('Please enter an amount.'); return; }
+  const rate = RATES[from];
+  const result = amt * rate;
+  document.getElementById('r-cur-original').textContent = amt.toLocaleString() + ' ' + from.toUpperCase();
+  document.getElementById('r-cur-rate').textContent = '1 ' + from.toUpperCase() + ' ≈ ₱' + rate;
+  document.getElementById('r-cur-result').textContent = fmt(result);
+  document.getElementById('cur-result').classList.add('show');
+}
+
+function calcRemitFee() {
+  const amt = parseFloat(document.getElementById('fee-amount').value) || 0;
+  if (!amt) { alert('Please enter an amount.'); return; }
+  const bank = amt * 0.03 + 25;
+  const center = amt * 0.015 + 5;
+  const digital = amt * 0.01 + 2;
+  document.getElementById('r-fee-bank').textContent = '$' + bank.toFixed(2);
+  document.getElementById('r-fee-center').textContent = '$' + center.toFixed(2);
+  document.getElementById('r-fee-digital').textContent = '$' + digital.toFixed(2);
+  document.getElementById('r-fee-cheapest').textContent = 'Digital Wallet — $' + digital.toFixed(2);
+  document.getElementById('fee-result').classList.add('show');
+}
+
+function calcAllotment() {
+  const total = parseFloat(document.getElementById('allot-total').value) || 0;
+  if (!total) { alert('Please enter a monthly amount.'); return; }
+  document.getElementById('r-allot-food').textContent = fmt(total * 0.40);
+  document.getElementById('r-allot-edu').textContent = fmt(total * 0.20);
+  document.getElementById('r-allot-bills').textContent = fmt(total * 0.15);
+  document.getElementById('r-allot-savings').textContent = fmt(total * 0.15);
+  document.getElementById('r-allot-emergency').textContent = fmt(total * 0.10);
+  document.getElementById('allot-result').classList.add('show');
+}
+
+function calcSavings() {
+  const goal = parseFloat(document.getElementById('sav-goal').value) || 0;
+  const current = parseFloat(document.getElementById('sav-current').value) || 0;
+  const monthly = parseFloat(document.getElementById('sav-monthly').value) || 0;
+  if (!goal || !monthly) { alert('Please fill in goal and monthly savings.'); return; }
+  const remaining = goal - current;
+  if (remaining <= 0) { alert('You have already reached your goal!'); return; }
+  const months = Math.ceil(remaining / monthly);
+  const targetDate = new Date();
+  targetDate.setMonth(targetDate.getMonth() + months);
+  document.getElementById('r-sav-remaining').textContent = fmt(remaining);
+  document.getElementById('r-sav-months').textContent = months + ' months';
+  document.getElementById('r-sav-date').textContent = targetDate.toLocaleDateString('en-US', {month:'long', year:'numeric'});
+  document.getElementById('sav-result').classList.add('show');
+}
+
+function calcCostLiving() {
+  const income = parseFloat(document.getElementById('col-income').value) || 0;
+  const currency = document.getElementById('col-currency').value;
+  const cost = parseFloat(document.getElementById('col-cost').value) || 0;
+  if (!income || !cost) { alert('Please fill all fields.'); return; }
+  const rate = RATES[currency];
+  const incomePhp = income * rate;
+  const costPhp = cost * rate;
+  const disposable = incomePhp - costPhp;
+  document.getElementById('r-col-income').textContent = fmt(incomePhp);
+  document.getElementById('r-col-cost').textContent = fmt(costPhp);
+  document.getElementById('r-col-disposable').textContent = fmt(disposable);
+  document.getElementById('col-result').classList.add('show');
+}
+
+function calcContract() {
+  const salary = parseFloat(document.getElementById('con-salary').value) || 0;
+  const currency = document.getElementById('con-currency').value;
+  const months = parseFloat(document.getElementById('con-months').value) || 0;
+  if (!salary || !months) { alert('Please fill all fields.'); return; }
+  const rate = RATES[currency];
+  const monthlyPhp = salary * rate;
+  const total = monthlyPhp * months;
+  document.getElementById('r-con-monthly').textContent = fmt(monthlyPhp);
+  document.getElementById('r-con-duration').textContent = months + ' months';
+  document.getElementById('r-con-total').textContent = fmt(total);
+  document.getElementById('con-result').classList.add('show');
+}
+</script>
+</body>
+</html>
